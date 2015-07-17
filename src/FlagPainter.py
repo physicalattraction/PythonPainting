@@ -9,7 +9,7 @@ import math
 import os.path
 
 from PIL import Image, ImageDraw
-
+import PainterUtils
 
 def assert_coordinate(xy):
     assert isinstance(xy, tuple), 'Coordinate must be a 2-tuple, is now a {}'.format(type(xy))
@@ -239,10 +239,7 @@ class FlagPainter(object):
         assert isinstance(size, tuple), 'Size must be a 2-tuple, is now a {}'.format(type(center))
         assert len(size) == 2, 'Size must be a 2-tuple'
         
-        pkg_dir = os.path.dirname(__file__)
-        img_dir = os.path.join(pkg_dir, '..', 'img', 'flag_drawings')
-        full_img_path = os.path.join(img_dir, img_name)
-        drawing = Image.open(full_img_path)
+        drawing = PainterUtils.read_flag_drawing(img_name)
         
         # Determine the size
         if size[0] is not None:
@@ -262,12 +259,12 @@ class FlagPainter(object):
         upper = int(round(Y_center - H / 2))
         
         # Place the drawing
-        # The third argument is the mask. Without it, the drawing as a white background.
+        # The third argument is the mask. Without it, the drawing has a white background.
         self.img.paste(drawing, (left, upper), drawing)
     
     def save(self, img_name, img_dir=None):
         if img_dir is None:
-            pkg_dir = os.path.dirname(__file__)
-            img_dir = os.path.join(pkg_dir, '..', 'img', 'flags')
-        full_img_path = os.path.join(img_dir, '{}.png'.format(img_name))
+            img_dir = PainterUtils.flags_dir()
+        
+        full_img_path = os.path.join(img_dir, PainterUtils.append_default_extension(img_name))
         self.img.save(full_img_path, quality=95, optimize=True)

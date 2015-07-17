@@ -5,13 +5,11 @@ Created on Jun 20, 2015
 '''
 
 import math
-import os.path
 
-from PIL import Image, ImageChops
-from django.utils.termcolors import background
+from PIL import Image
 
 from FlagPainter import FlagPainter, StripeDirection
-
+import PainterUtils
 
 def paint_flag_albania():
     f = FlagPainter(5 / 7)
@@ -180,12 +178,22 @@ def paint_flag_georgia():
     background_color = (255, 255, 255)
     draw_color = (224, 0, 54)
     f.background(background_color)
-    for X in [45 / 300, 215 / 300]:
-        for Y in [20 / 200, 140 / 200]:
-            f.draw_rectangle((X + 15 / 300, Y, X + 25 / 300, Y + 40 / 200), draw_color)
-            f.draw_rectangle((X, Y + 15 / 200, X + 40 / 300, Y + 25 / 200), draw_color)
+#     for X in [45 / 300, 215 / 300]:
+#         for Y in [20 / 200, 140 / 200]:
+#             f.draw_rectangle((X + 15 / 300, Y, X + 25 / 300, Y + 40 / 200), draw_color)
+#             f.draw_rectangle((X, Y + 15 / 200, X + 40 / 300, Y + 25 / 200), draw_color)
     f.draw_horizontal_band(height=(80 / 200, 120 / 200), color=draw_color)
     f.draw_vertical_band(width=(130 / 300, 170 / 300), color=draw_color)
+    
+    left = 65 / 300
+    upper = 40 / 200
+    right = 235 / 300
+    lower = 160 / 200
+    size = (40 / 300, 40 / 200)
+    for X in [left, right]:
+        for Y in [upper, lower]:
+            f.place_drawing('bolnur_katskhuri_cross', (X, Y), size)
+    
     f.save('georgia')
     
 def paint_flag_germany():
@@ -270,6 +278,31 @@ def paint_flag_sweden():
     f.draw_vertical_band((5 / 16, 7 / 16), colors[1])
     f.save('sweden')
 
+def paint_flag_switzerland():
+    '''Flag construction: http://vexilla-mundi.com/switserland_flag.html'''
+    f = FlagPainter(1 / 1)
+    colors = [(197, 5, 50), (255, 255, 255)]
+    f.background(colors[0])
+    
+    out_lu = 6 / 32
+    in_lu = 13 / 32
+    out_rl = 26 / 32
+    in_rl = 19 / 32
+    horizontal_box = (out_lu, in_lu, out_rl, in_rl)
+    vertical_box = (in_lu, out_lu, in_rl, out_rl)
+    f.draw_rectangle(horizontal_box, colors[1])
+    f.draw_rectangle(vertical_box, colors[1])
+    f.save('switzerland')
+
+def paint_flag_switzerland_fashioncheque():
+    '''Flag construction: http://vexilla-mundi.com/switserland_flag.html'''
+    f = FlagPainter(2 / 3)
+    colors = [(197, 5, 50), (255, 255, 255)]
+    f.background(colors[0])
+    
+    f.place_drawing('switzerland', center=(1 / 2, 1 / 2), size=(None, 1))
+    f.save('switzerland_fashioncheque')
+
 def paint_flag_uk():
     f = FlagPainter(1 / 2)
     colors = [(0, 36, 125), (207, 20, 43), (255, 255, 255)]
@@ -306,52 +339,75 @@ def paint_flag_uk():
 '''
 Helper functions
 '''
+
+def paint_bolnur_katskhuri_cross():
+    '''Return an image of a Bolnur-Kathskuri cross, as seen on the flag of Georgia'''
     
+    # Make the rounded bar with transparent background available
+    rounded_bar_file = paint_rounded_bar()
+    
+    # Open the rounded bars as images
+    rounded_bar_horizontal = PainterUtils.read_flag_drawing(rounded_bar_file)
+    rounded_bar_vertical = PainterUtils.read_flag_drawing(rounded_bar_file)
+    rounded_bar_vertical = rounded_bar_vertical.rotate(90, expand=0)
+    
+    # Create the canvas
+    W = rounded_bar_horizontal.size[0]
+    H = rounded_bar_vertical.size[1]
+    cross = Image.new("RGBA", (W, H), (255, 255, 255, 0))
+    
+    # Determine where to position the bars
+    D = rounded_bar_horizontal.size[1]
+    left = int(round(W / 2 - D / 2))
+    upper = int(round(H / 2 - D / 2))
+    right = int(round(W / 2 + D / 2))
+    lower = int(round(H / 2 + D / 2))
+    
+    # Paste the bars
+    cross.paste(rounded_bar_horizontal, (0, upper, W, lower), rounded_bar_horizontal)
+    cross.paste(rounded_bar_vertical, (left, 0, right, H), rounded_bar_vertical)
+    
+    # Save the image
+    PainterUtils.write_flag_drawing(cross, 'bolnur_katskhuri_cross')
+
 def paint_rounded_bar():
-    f = FlagPainter(3 / 6)
-    background_color = (255, 255, 255)
-    draw_color = (224, 0, 54)
-    f.background((0, 0, 0))
-    f.draw_rectangle((1 / 6, 1 / 3, 5 / 6, 2 / 3), color=draw_color)
+    '''Return an image of a bar that is required for the construction of a Bolnur-Kathskuri cross'''
     
+    f = FlagPainter(3 / 6)
+    transparent = (255, 255, 255, 0)
+    
+    draw_color = (224, 0, 54)
+    f.background(transparent)
+    
+    f.draw_rectangle((1 / 6, 1 / 3, 5 / 6, 2 / 3), color=draw_color)
+     
     H = 10
     R = 56
     alpha = math.asin(H / (2 * R))
     X = R * math.cos(alpha)
-    f.draw_circle(center=(1 / 6 - X / 60, 1 / 2), radius=R / 60, color=background_color)
-    f.draw_circle(center=(5 / 6 + X / 60, 1 / 2), radius=R / 60, color=background_color)
-    
+    f.draw_circle(center=(1 / 6 - X / 60, 1 / 2), radius=R / 60, color=transparent)
+    f.draw_circle(center=(5 / 6 + X / 60, 1 / 2), radius=R / 60, color=transparent)
+     
     W = 40
     R = 104
     alpha = math.asin(W / (2 * R))
     Y = R * math.cos(alpha)
-    f.draw_circle(center=(1 / 2, 1 / 3 - Y / 30), radius=R / 60, color=background_color)
-    f.draw_circle(center=(1 / 2, 2 / 3 + Y / 30), radius=R / 60, color=background_color)
+    f.draw_circle(center=(1 / 2, 1 / 3 - Y / 30), radius=R / 60, color=transparent)
+    f.draw_circle(center=(1 / 2, 2 / 3 + Y / 30), radius=R / 60, color=transparent)
     
-    pkg_dir = os.path.dirname(__file__)
-    flag_detail_dir = os.path.join(pkg_dir, '..', 'img', 'flag_drawings')
-    f.save('rounded_bar_with_bg', flag_detail_dir)
-    trim_drawings('rounded_bar_with_bg.png', 'rounded_bar.png')
+    img = PainterUtils.trim_img(f.img)
+    filename_out = 'transparent_bar'
+    PainterUtils.write_flag_drawing(img, filename_out)
     
-    # TODO: make the white transparent, such that we can make a cross out of it
-
-def trim_drawings(filename_in, filename_out):
-    # Trim the details on the flag
-    src_dir = os.path.dirname(__file__)
-    flag_drawings_dir = os.path.join(src_dir, '..', 'img', 'flag_drawings')
-    full_filename_in = os.path.join(flag_drawings_dir, filename_in)
-    img = Image.open(full_filename_in)
-    bg = Image.new(img.mode, img.size, img.getpixel((0, 0)))
-    diff = ImageChops.difference(img, bg)
-    bbox = diff.getbbox()
-    if bbox:
-        img = img.crop(bbox)
-        full_filename_out = os.path.join(flag_drawings_dir, filename_out)
-        img.save(full_filename_out)
+    return filename_out
 
 if __name__ == '__main__':
+# Test runs
 #     trim_drawings(filename_in='cyprus_flag.png', filename_out='cyprus_detail.png')
-    paint_rounded_bar()
+#     paint_rounded_bar()
+#     paint_bolnur_katskhuri_cross()
+
+# Flags
 #     paint_flag_albania()
 #     paint_flag_andorra()
 #     paint_flag_armenia()
@@ -381,4 +437,6 @@ if __name__ == '__main__':
 #     paint_flag_portugal()
 #     paint_flag_spain()
 #     paint_flag_sweden()
+    paint_flag_switzerland()
+    paint_flag_switzerland_fashioncheque()
 #     paint_flag_uk()
