@@ -3,10 +3,10 @@ Created on Jul 9, 2015
 
 @author: Erwin Rossen
 '''
-
 import os.path
 from PIL import Image
 import PainterUtils
+
 
 def create_empty_splash_screens():
     required_splash_screen_sizes = [(4000, 3000),
