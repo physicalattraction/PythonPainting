@@ -335,6 +335,32 @@ def paint_flag_uk():
     f.draw_vertical_band((27 / 60, 33 / 60), colors[1])
     
     f.save('uk')
+    
+def paint_flag_milan():
+    f = FlagPainter(2 / 1)
+    colors = [(0, 255, 204), (255, 0, 0)]
+    
+    # Background color
+    f.background(colors[0])
+    
+    f.draw_star(center=(1 / 2, 1 / 2), radius_inner=1 / 4, radius_outer=1 / 2,
+                N_points=5, starting_alpha=-math.pi / 2, color=colors[1])
+    
+    f.draw_star(center=(1 / 2, 1 / 2), radius_inner=1 / 6, radius_outer=1 / 3,
+                N_points=5, starting_alpha=-math.pi / 2, color=colors[0])
+    
+    f.draw_text(text='ML', center=(1 / 2, 1 / 2), color=colors[1], font_size=192)
+    
+    f.save('milan')
+    
+def paint_flag_headspace():
+    f = FlagPainter(1 / 1)
+    colors = [(255, 255, 255), (255, 140, 0)]
+    
+    f.background(colors[0])
+    f.draw_circle((1 / 2, 1 / 2), 1 / 3, colors[1])
+    
+    f.save('headspace')
 
 '''
 Helper functions
@@ -425,7 +451,7 @@ if __name__ == '__main__':
 #     paint_flag_faroe()
 #     paint_flag_finland()
 #     paint_flag_france()
-    paint_flag_georgia()
+#     paint_flag_georgia()
     
 #     paint_flag_germany()
 #     paint_flag_iceland()
@@ -437,6 +463,9 @@ if __name__ == '__main__':
 #     paint_flag_portugal()
 #     paint_flag_spain()
 #     paint_flag_sweden()
-    paint_flag_switzerland()
-    paint_flag_switzerland_fashioncheque()
+#     paint_flag_switzerland()
+#     paint_flag_switzerland_fashioncheque()
 #     paint_flag_uk()
+
+#     paint_flag_milan()
+    paint_flag_headspace()

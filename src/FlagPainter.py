@@ -8,7 +8,7 @@ from enum import Enum
 import math
 import os.path
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 import PainterUtils
 
 def assert_coordinate(xy):
@@ -218,6 +218,16 @@ class FlagPainter(object):
             X3 = X + r * math.cos(alpha - Delta_alpha)
             Y3 = Y + r * math.sin(alpha - Delta_alpha) / HW
             self.draw_polygon([(X1, Y1), (X2, Y2), (X3, Y3)], color)
+    
+    def draw_text(self, text, center, color, font='../fonts/Trebuchet MS Bold.ttf', font_size=24):
+        my_font = ImageFont.truetype(font, font_size)
+        w, h = self.draw.textsize(text, my_font)
+        x = center[0] * self.W - 1 / 2 * w
+        y = center[1] * self.H - 1 / 2 * h
+        
+        print(x, y)
+        
+        self.draw.text((x, y), text, fill=color, font=my_font)
     
     def place_drawing(self, img_name, center, size):
         '''Place a drawing on the flag
