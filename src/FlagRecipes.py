@@ -122,7 +122,7 @@ def paint_flag_croatia():
 
 
 def paint_flag_cyprus():
-    """Flag construction: http://www.vexilla-mundi.com/cyprus_flag.html"""
+    """http://www.vexilla-mundi.com/cyprus_flag.html"""
     f = FlagPainter(2 / 3)
     white = (255, 255, 255)
     f.background(white)
@@ -142,7 +142,7 @@ def paint_flag_czech_republic():
 
 
 def paint_flag_denmark():
-    """Flag construction: http://www.crwflags.com/fotw/flags/dk.html"""
+    """http://www.crwflags.com/fotw/flags/dk.html"""
     f = FlagPainter(14 / 17)
     colors = [(216, 30, 5), (255, 255, 255)]
     f.background(colors[0])
@@ -160,7 +160,7 @@ def paint_flag_estonia():
 
 
 def paint_flag_faroe():
-    """Flag construction: http://www.crwflags.com/fotw/flags/fo.html"""
+    """http://www.crwflags.com/fotw/flags/fo.html"""
     f = FlagPainter(16 / 22)
     colors = [(255, 255, 255), (0, 102, 204), (255, 0, 0)]
     f.background(colors[0])
@@ -172,7 +172,7 @@ def paint_flag_faroe():
 
 
 def paint_flag_finland():
-    """Flag construction: http://www.crwflags.com/fotw/flags/fi.html"""
+    """http://www.crwflags.com/fotw/flags/fi.html"""
     f = FlagPainter(11 / 18)
     colors = [(255, 255, 255), (0, 51, 153)]
     f.background(colors[0])
@@ -190,16 +190,14 @@ def paint_flag_france():
 
 
 def paint_flag_georgia():
-    """Flag construction: http://www.vexilla-mundi.com/georgia_flag.html"""
+    """http://www.vexilla-mundi.com/georgia_flag.html"""
+    paint_bolnur_katskhuri_cross()
+
     f = FlagPainter(2 / 3)
 
     background_color = (255, 255, 255)
     draw_color = (224, 0, 54)
     f.background(background_color)
-    #     for X in [45 / 300, 215 / 300]:
-    #         for Y in [20 / 200, 140 / 200]:
-    #             f.draw_rectangle((X + 15 / 300, Y, X + 25 / 300, Y + 40 / 200), draw_color)
-    #             f.draw_rectangle((X, Y + 15 / 200, X + 40 / 300, Y + 25 / 200), draw_color)
     f.draw_horizontal_band(height=(80 / 200, 120 / 200), color=draw_color)
     f.draw_vertical_band(width=(130 / 300, 170 / 300), color=draw_color)
 
@@ -256,7 +254,7 @@ def paint_flag_hungary():
 
 
 def paint_flag_iceland():
-    """Flag construction: http://www.crwflags.com/fotw/flags/is.html"""
+    """http://www.crwflags.com/fotw/flags/is.html"""
     f = FlagPainter(18 / 25)
     colors = [(0, 0, 204), (255, 255, 255), (255, 0, 0)]
     f.background(colors[0])
@@ -281,6 +279,32 @@ def paint_flag_italy():
     ratios = [1, 1, 1]
     f.stripes(colors, ratios, StripeDirection.vertical)
     f.save('italy')
+
+
+def paint_flag_kazakhstan():
+    """http://www.vexilla-mundi.com/kazakhstan_flag.html"""
+    f = FlagPainter(1 / 2)
+    f.background((20, 160, 193))
+    A = 2180
+    B = 1820
+    D = 1258
+    F = 460
+    G = 580
+    H = 240
+    I = 120
+    J = 110
+    K = 190
+    L = 350
+    Q = 420
+    R = 470
+    width = A + B
+    height = 2 * J + 2 * K + 4 * L
+    drawing_height = Q + (R - Q) + G
+    f.place_drawing('kazakhstan_detail_1', (A / width, 1 - (F + drawing_height / 2) / height),
+                    (D/width, drawing_height/height))
+    f.place_drawing('kazakhstan_detail_2', ((I+H/2)/width, (J+K+2*L)/height),
+                    (H/width, (2*K+4*L)/height))
+    f.save('kazakhstan')
 
 
 def paint_flag_kosovo():
@@ -411,7 +435,7 @@ def paint_flag_netherlands():
 
 
 def paint_flag_norway():
-    """Flag construction: http://www.crwflags.com/fotw/flags/no.html"""
+    """http://www.crwflags.com/fotw/flags/no.html"""
     f = FlagPainter(16 / 22)
     colors = [(255, 0, 0), (255, 255, 255), (0, 51, 102)]
     f.background(colors[0])
@@ -513,7 +537,7 @@ def paint_flag_spain():
 
 
 def paint_flag_sweden():
-    """Flag construction: http://www.crwflags.com/fotw/flags/se.html"""
+    """http://www.crwflags.com/fotw/flags/se.html"""
     f = FlagPainter(10 / 16)
     colors = [(0, 102, 153), (255, 204, 0)]
     f.background(colors[0])
@@ -523,7 +547,7 @@ def paint_flag_sweden():
 
 
 def paint_flag_switzerland():
-    """Flag construction: http://vexilla-mundi.com/switserland_flag.html"""
+    """http://vexilla-mundi.com/switserland_flag.html"""
     f = FlagPainter(1 / 1)
     colors = [(197, 5, 50), (255, 255, 255)]
     f.background(colors[0])
@@ -540,7 +564,7 @@ def paint_flag_switzerland():
 
 
 def paint_flag_switzerland_fashioncheque():
-    """Flag construction: http://vexilla-mundi.com/switserland_flag.html"""
+    """http://vexilla-mundi.com/switserland_flag.html"""
     f = FlagPainter(2 / 3)
     colors = [(197, 5, 50), (255, 255, 255)]
     f.background(colors[0])
@@ -555,8 +579,10 @@ def paint_flag_turkey():
     https://en.wikipedia.org/wiki/Flag_of_Turkey#Dimensions
     """
     f = FlagPainter(2 / 3)
-    colors = [(190, 0, 36), (255, 255, 255)]
-    f.background(colors[0])
+    red = (190, 0, 36)
+    white = (255, 255, 255)
+
+    f.background(red)
     A = 360
     B = 240
     C = 120
@@ -565,11 +591,11 @@ def paint_flag_turkey():
     F = 60
     G = 48
     H = 30
-    f.draw_circle((C / A, 1 / 2), F / A, colors[1])
-    f.draw_circle(((C + D) / A, 1 / 2), G / A, colors[0])
+    f.draw_circle((C / A, C / B), F / A, white)
+    f.draw_circle(((C + D) / A, C / B), G / A, red)
     # The inner radius of the star is not specified. H/3 as this radius is an assumption.
-    f.draw_star(((C + D - G / 2 + E + H / 2) / A, 1 / 2), radius_inner=(H / 3) / A,
-                radius_outer=H / A, nr_points=5, starting_alpha=math.pi, color=colors[1])
+    f.draw_star(((C + D - G / 2 + E + H / 2) / A, C / B), radius_inner=(H / 3) / A,
+                radius_outer=H / A, nr_points=5, starting_alpha=math.pi, color=white)
     f.save('turkey')
 
 
@@ -582,7 +608,8 @@ def paint_flag_ukraine():
     f.save('ukraine')
 
 
-def paint_flag_uk():
+def paint_flag_united_kingdom():
+    """http://www.vexilla-mundi.com/united_kingdom_flag.html"""
     f = FlagPainter(1 / 2)
     colors = [(0, 36, 125), (207, 20, 43), (255, 255, 255)]
 
@@ -614,7 +641,7 @@ def paint_flag_uk():
     f.draw_horizontal_band((12 / 30, 18 / 30), colors[1])
     f.draw_vertical_band((27 / 60, 33 / 60), colors[1])
 
-    f.save('uk')
+    f.save('united_kingdom')
 
 
 def paint_flag_vatican_city():
@@ -661,7 +688,7 @@ Helper functions
 
 
 def paint_bolnur_katskhuri_cross():
-    """Return an image of a Bolnur-Kathskuri cross, as seen on the flag of Georgia"""
+    """Save an image of a Bolnur-Kathskuri cross, as seen on the flag of Georgia"""
 
     # Make the rounded bar with transparent background available
     rounded_bar_file = paint_rounded_bar()
@@ -725,7 +752,9 @@ def paint_rounded_bar():
 
 if __name__ == '__main__':
 
-    paint_european_flags=True
+    paint_flag_kazakhstan()
+
+    paint_european_flags = False
     paint_toy_flags = False
 
     if paint_european_flags:
@@ -753,6 +782,7 @@ if __name__ == '__main__':
         paint_flag_iceland()
         paint_flag_ireland()
         paint_flag_italy()
+        paint_flag_kazakhstan()
         paint_flag_kosovo()
         paint_flag_latvia()
         paint_flag_liechtenstein()
@@ -778,7 +808,7 @@ if __name__ == '__main__':
         paint_flag_switzerland()
         paint_flag_turkey()
         paint_flag_ukraine()
-        paint_flag_uk()
+        paint_flag_united_kingdom()
         paint_flag_vatican_city()
 
     if paint_toy_flags:
