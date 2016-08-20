@@ -725,12 +725,10 @@ def paint_rounded_bar():
 
 if __name__ == '__main__':
 
-    paint_flag_turkey()
-    paint_flag_ukraine()
-    paint_flag_vatican_city()
+    paint_european_flags=True
+    paint_toy_flags = False
 
-    done = True
-    if (not done):
+    if paint_european_flags:
         paint_flag_albania()
         paint_flag_andorra()
         paint_flag_armenia()
@@ -778,9 +776,12 @@ if __name__ == '__main__':
         paint_flag_spain()
         paint_flag_sweden()
         paint_flag_switzerland()
-
+        paint_flag_turkey()
+        paint_flag_ukraine()
         paint_flag_uk()
+        paint_flag_vatican_city()
 
+    if paint_toy_flags:
         paint_flag_switzerland_fashioncheque()
         paint_flag_milan()
         paint_flag_headspace()

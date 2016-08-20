@@ -38,7 +38,7 @@ class FlagPainter(object):
         draw: ImageDraw object, operating self.img
         """
 
-        width = 1024  # pixels
+        width = 4000  # pixels
         height = (int)(width * height_width_ratio)
         self.img = Image.new("RGBA", (width, height), "white")
         self.draw = ImageDraw.Draw(self.img)
@@ -284,10 +284,6 @@ class FlagPainter(object):
         if img_dir is None:
             img_dir = PainterUtils.flags_dir()
 
-        original_size = self.img.size
-        self.img.resize(size=(2 * original_size[0], 2 * original_size[1]),
-                        resample=Image.ANTIALIAS)
-        self.img.resize(size=original_size, resample=Image.ANTIALIAS)
-
         full_img_path = os.path.join(img_dir, PainterUtils.append_default_extension(img_name))
-        self.img.save(full_img_path, quality=95, optimize=True, )
+        print('Save {}'.format(PainterUtils.append_default_extension(img_name)))
+        self.img.save(full_img_path, quality=95, optimize=True)
