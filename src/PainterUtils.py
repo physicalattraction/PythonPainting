@@ -1,8 +1,8 @@
-'''
+"""
 Created on Jun 30, 2015
 
 @author: Erwin Rossen
-'''
+"""
 
 import os.path
 
@@ -12,7 +12,7 @@ import numpy as np
 
 
 def append_default_extension(filename, default_extension='.png'):
-    '''If a filename has no extension yet, add the default extension to it'''
+    """If a filename has no extension yet, add the default extension to it"""
     if '.' in filename:
         return filename
     else:
@@ -20,13 +20,13 @@ def append_default_extension(filename, default_extension='.png'):
 
 
 def drawings_dir():
-    '''Determine the flag_drawings directory'''
+    """Determine the flag_drawings directory"""
     flag_drawings_dir = get_img_dir('flag_drawings')
     return flag_drawings_dir
 
 
 def get_img_dir(dir_name):
-    '''Determine the correct image directory'''
+    """Determine the correct image directory"""
     src_dir = os.path.dirname(__file__)
     folder = os.path.join(src_dir, '..', 'img', dir_name)
     if not os.path.exists(folder):
@@ -35,40 +35,40 @@ def get_img_dir(dir_name):
 
 
 def flags_dir():
-    '''Determine the flags directory'''
+    """Determine the flags directory"""
     src_dir = os.path.dirname(__file__)
     flags_dir = os.path.join(src_dir, '..', 'img', 'flags')
     return flags_dir
 
 
 def font_dir():
-    '''Determine the fonts directory'''
+    """Determine the fonts directory"""
     src_dir = os.path.dirname(__file__)
     fonts_dir = os.path.join(src_dir, '..', 'img', 'fonts')
     return fonts_dir
 
 
 def fashioncheque_dir():
-    '''Determine the flags directory'''
+    """Determine the flags directory"""
     src_dir = os.path.dirname(__file__)
     fc_dir = os.path.join(src_dir, '..', 'img', 'fashioncheque')
     return fc_dir
 
 
 def read_flag_drawing(filename_in):
-    '''Open an image from a file in the flag_drawings directory'''
+    """Open an image from a file in the flag_drawings directory"""
     full_filename_in = os.path.join(drawings_dir(), append_default_extension(filename_in))
     img = Image.open(full_filename_in)
     return img
 
 
 def write_flag_drawing(img, filename_out):
-    '''Write an image to a file in the flag_drawings directory'''
+    """Write an image to a file in the flag_drawings directory"""
     save_img(img, 'flag_drawings', filename_out)
 
 
 def save_img(img, dirname, filename, cmyk=False):
-    '''Save an image to a file in the indicated img directory'''
+    """Save an image to a file in the indicated img directory"""
     full_img_dir = get_img_dir(dirname)
     if cmyk:
         # Transform image to full color CMYK before saving
@@ -81,8 +81,19 @@ def save_img(img, dirname, filename, cmyk=False):
         img.save(full_filename_out, quality=95, optimize=True)
 
 
+def crop_img_relative(img, box):
+    """Crop an image in the given relative rectangle"""
+    width, height = img.size
+    left = int(round(box[0] * width))
+    upper = int(round(box[1] * height))
+    right = int(round(box[2] * width))
+    lower = int(round(box[3] * height))
+    img = img.crop((left, upper, right, lower))
+    return img
+
+
 def trim_img(img):
-    '''Trim the edges of an image'''
+    """Trim the edges of an image"""
     bg = Image.new(img.mode, img.size, img.getpixel((0, 0)))
     diff = ImageChops.difference(img, bg)
     bbox = diff.getbbox()
@@ -92,7 +103,7 @@ def trim_img(img):
 
 
 def rel2abs(rel_coordinate, size):
-    '''Transform a relative coordinate to an absolute coordinate'''
+    """Transform a relative coordinate to an absolute coordinate"""
     assert isinstance(rel_coordinate, tuple)
     assert len(rel_coordinate) == 2
 
@@ -102,7 +113,7 @@ def rel2abs(rel_coordinate, size):
 
 
 def rel2abs_geom(rel_number, size):
-    '''Transform a relative number to an absolute coordinate, using the geometric mean of the size'''
+    """Transform a relative number to an absolute coordinate, using the geometric mean of the size"""
     assert 0 <= rel_number and rel_number <= 1, '{} shall be between 0 and 1'.format(rel_number)
     abs_number = int(round(np.sqrt(size[0] * size[1]) * rel_number))
     return abs_number

@@ -7,6 +7,7 @@ Created on Jun 20, 2015
 import math
 
 from PIL import Image
+from PIL.PngImagePlugin import PngImageFile
 
 from FlagPainter import FlagPainter, StripeDirection
 import PainterUtils
@@ -16,7 +17,7 @@ def paint_flag_albania():
     f = FlagPainter(5 / 7)
     color = (213, 39, 34)
     f.background(color)
-    f.place_drawing('albania_coat_of_arms.png', (1 / 2, 1 / 2), (18 / 48, 20 / 30))
+    f.place_drawing('albania_detail.png', (1 / 2, 1 / 2), (18 / 48, 20 / 30))
     f.save('albania')
 
 
@@ -25,7 +26,7 @@ def paint_flag_andorra():
     colors = [(28, 63, 148), (255, 238, 0), (237, 22, 79)]
     ratios = [64, 72, 64]
     f.stripes(colors, ratios, StripeDirection.vertical)
-    f.place_drawing('andorra_coat_of_arms.png', (1 / 2, 1 / 2), (62 / 200, 66 / 140))
+    f.place_drawing('andorra_detail.png', (1 / 2, 1 / 2), (62 / 200, 66 / 140))
     f.save('andorra')
 
 
@@ -65,7 +66,7 @@ def paint_flag_belarus():
     ratios = [2, 1]
     f.stripes(colors, ratios, StripeDirection.horizontal)
     f.draw_vertical_band((0, 70 / 630), white)
-    f.place_drawing('belarus_ornament.png', center=(35 / 630, 1 / 2), size=(70 / 630, 1))
+    f.place_drawing('belarus_detail.png', center=(35 / 630, 1 / 2), size=(70 / 630, 1))
     f.save('belarus')
 
 
@@ -117,7 +118,7 @@ def paint_flag_croatia():
     H = 795 / 600 * W / (f.height / f.width)
     upper = 1 / 3 - 250 / 795 * H
     lower = 1 / 3 + 545 / 795 * H
-    f.place_drawing('croatia_coat_of_arms.png', center=(1 / 2, (upper + lower) / 2), size=(W, H))
+    f.place_drawing('croatia_detail.png', center=(1 / 2, (upper + lower) / 2), size=(W, H))
     f.save('croatia')
 
 
@@ -301,9 +302,9 @@ def paint_flag_kazakhstan():
     height = 2 * J + 2 * K + 4 * L
     drawing_height = Q + (R - Q) + G
     f.place_drawing('kazakhstan_detail_1', (A / width, 1 - (F + drawing_height / 2) / height),
-                    (D/width, drawing_height/height))
-    f.place_drawing('kazakhstan_detail_2', ((I+H/2)/width, (J+K+2*L)/height),
-                    (H/width, (2*K+4*L)/height))
+                    (D / width, drawing_height / height))
+    f.place_drawing('kazakhstan_detail_2', ((I + H / 2) / width, (J + K + 2 * L) / height),
+                    (H / width, (2 * K + 4 * L) / height))
     f.save('kazakhstan')
 
 
@@ -319,7 +320,7 @@ def paint_flag_kosovo():
         (x, y) = (225 / 420 + r_arc * math.cos(angle), 1 - r_arc * math.sin(angle))
         f.draw_star(center=(x, y), radius_inner=8 / 420, radius_outer=17 / 420, nr_points=5,
                     starting_alpha=-math.pi / 2, color=colors[1])
-        f.place_drawing(img_name='kosovo_shape', center=(212 / 420, 163 / 280),
+        f.place_drawing(img_name='kosovo_detail', center=(212 / 420, 163 / 280),
                         size=(156 / 420, 154 / 280))
     f.save('kosovo')
 
@@ -340,7 +341,8 @@ def paint_flag_liechtenstein():
     colors = [(0, 36, 151), (190, 0, 36)]
     ratios = [1, 1]
     f.stripes(colors, ratios, StripeDirection.horizontal)
-    f.place_drawing(img_name='liechtenstein_crown', center=(8 / 40, 6 / 24), size=(8 / 40, 6 / 24))
+    f.place_drawing(img_name='liechtenstein_detail', center=(8 / 40, 6 / 24),
+                    size=(8 / 40, 6 / 24))
     f.save('liechtenstein')
 
 
@@ -392,7 +394,7 @@ def paint_flag_malta():
     colors = [(255, 255, 255), (190, 0, 36)]
     ratios = [1, 1]
     f.stripes(colors, ratios, StripeDirection.vertical)
-    f.place_drawing('malta_cross', (95 / 810, 95 / 540), (150 / 810, 150 / 540))
+    f.place_drawing('malta_detail', (95 / 810, 95 / 540), (150 / 810, 150 / 540))
     f.save('malta')
 
 
@@ -402,7 +404,7 @@ def paint_flag_moldova():
     colors = [(4, 49, 157), (254, 194, 14), (193, 0, 32)]
     ratios = [1, 1, 1]
     f.stripes(colors, ratios, StripeDirection.vertical)
-    f.place_drawing('moldova_bird', (1 / 2, 1 / 2), (168 / 600, 168 / 300))
+    f.place_drawing('moldova_detail', (1 / 2, 1 / 2), (168 / 600, 168 / 300))
     f.save('moldova')
 
 
@@ -421,7 +423,7 @@ def paint_flag_montenegro():
     colors = [(283, 12, 43), (254, 191, 37)]
     f.background(colors[1])
     f.draw_rectangle(box=(3 / 120, 3 / 60, 1 - 3 / 120, 1 - 3 / 60), color=colors[0])
-    f.place_drawing('montenegro_coat_of_arms', (1 / 2, 1 / 2), (None, 40 / 60))
+    f.place_drawing('montenegro_detail', (1 / 2, 1 / 2), (None, 40 / 60))
     f.save('montenegro')
 
 
@@ -461,7 +463,7 @@ def paint_flag_portugal():
     colors = [(209, 17, 24), (11, 87, 46)]
     ratios = [2, 3]
     f.stripes(colors, ratios, StripeDirection.vertical)
-    f.place_drawing('portugal_coat_of_arms.png', (2 / 5, 1 / 2), (None, 1 / 2))
+    f.place_drawing('portugal_detail.png', (2 / 5, 1 / 2), (None, 1 / 2))
     f.save('portugal')
 
 
@@ -492,7 +494,7 @@ def paint_flag_san_marino():
     colors = [(255, 255, 255), (76, 166, 222)]
     ratios = [1, 1]
     f.stripes(colors, ratios, StripeDirection.horizontal)
-    f.place_drawing('san_marino_coat_of_arms', (1 / 2, 14 / 30), (15 / 40, 18 / 30))
+    f.place_drawing('san_marino_detail', (1 / 2, 14 / 30), (15 / 40, 18 / 30))
     f.save('san_marino')
 
 
@@ -502,7 +504,7 @@ def paint_flag_serbia():
     colors = [(223, 0, 56), (0, 25, 98), (255, 255, 255)]
     ratios = [1, 1, 1]
     f.stripes(colors, ratios, StripeDirection.horizontal)
-    f.place_drawing('serbia_coat_of_arms', (321.5 / 900, 275 / 600), (225 / 900, 450 / 600))
+    f.place_drawing('serbia_detail', (321.5 / 900, 275 / 600), (225 / 900, 450 / 600))
     f.save('serbia')
 
 
@@ -512,7 +514,7 @@ def paint_flag_slovakia():
     colors = [(255, 255, 255), (0, 36, 151), (190, 0, 36)]
     ratios = [1, 1, 1]
     f.stripes(colors, ratios, StripeDirection.horizontal)
-    f.place_drawing('slovakia_coat_of_arms', (270 / 900, 300 / 600), (240 / 900, 318 / 600))
+    f.place_drawing('slovakia_detail', (270 / 900, 300 / 600), (240 / 900, 318 / 600))
     f.save('slovakia')
 
 
@@ -522,7 +524,7 @@ def paint_flag_slovenia():
     colors = [(255, 255, 255), (4, 49, 157), (203, 0, 44)]
     ratios = [1, 1, 1]
     f.stripes(colors, ratios, StripeDirection.horizontal)
-    f.place_drawing('slovenia_coat_of_arms', (63 / 252, 42 / 126), (32 / 252, 42 / 126))
+    f.place_drawing('slovenia_detail', (63 / 252, 42 / 126), (32 / 252, 42 / 126))
     f.save('slovenia')
 
 
@@ -532,7 +534,7 @@ def paint_flag_spain():
     colors = [(190, 0, 36), (254, 194, 14), (190, 0, 36)]
     ratios = [1, 2, 1]
     f.stripes(colors, ratios, StripeDirection.horizontal)
-    f.place_drawing('spain_coat_of_arms.png', (20 / 60, 1 / 2), (16 / 60, 16 / 40))
+    f.place_drawing('spain_detail.png', (20 / 60, 1 / 2), (16 / 60, 16 / 40))
     f.save('spain')
 
 
@@ -696,7 +698,18 @@ def paint_bolnur_katskhuri_cross():
     # Open the rounded bars as images
     rounded_bar_horizontal = PainterUtils.read_flag_drawing(rounded_bar_file)
     rounded_bar_vertical = PainterUtils.read_flag_drawing(rounded_bar_file)
-    rounded_bar_vertical = rounded_bar_vertical.rotate(90, expand=0)
+    # In principle, it is not necessary to import PngImageFile explicitly, and call rotate with the
+    # class explicitly and an instance as first parameter, but when you do so, you can navigate
+    # more easily to the source code of the rotate function.
+    rounded_bar_vertical = PngImageFile.rotate(rounded_bar_vertical, angle=90,
+                                               resample=Image.BICUBIC, expand=True)
+    # When rotating, the size can change up to 1 pixel. E.g. a bar of (2757, 995) has size
+    # (996, 2757) after rotation with expand=True, regardless of resample parameter. To
+    # counteract this, we define the size of the vertical bar to exact the same size as the
+    # size of the horizontal bar, but width and height interchanged.
+    rounded_bar_vertical = rounded_bar_vertical.resize(
+        size=(rounded_bar_horizontal.size[1], rounded_bar_horizontal.size[0]),
+        resample=Image.NEAREST)
 
     # Create the canvas
     W = rounded_bar_horizontal.size[0]
@@ -710,9 +723,17 @@ def paint_bolnur_katskhuri_cross():
     right = int(round(W / 2 + D / 2))
     lower = int(round(H / 2 + D / 2))
 
+    if False:  # Set to true for debug mode
+        print('W:{W}, H:{H}, D:{D}, left:{left}, upper:{upper}, '
+              'right:{right}, lower:{lower}, width: {width}, height: {height}'.
+              format(W=W, H=H, D=D, left=left, upper=upper,
+                     right=right, lower=lower, width=right - left, height=lower - upper))
+
     # Paste the bars
-    cross.paste(rounded_bar_horizontal, (0, upper, W, lower), rounded_bar_horizontal)
-    cross.paste(rounded_bar_vertical, (left, 0, right, H), rounded_bar_vertical)
+    cross.paste(im=rounded_bar_horizontal, box=(0, upper, W, lower), mask=rounded_bar_horizontal)
+    cross.paste(im=rounded_bar_vertical, box=(left, 0, right, H), mask=rounded_bar_vertical)
+    # cross.paste(im=rounded_bar_horizontal, box=(0, upper, W, lower), mask=None)
+    # cross.paste(im=rounded_bar_vertical, box=(left, 0, right, H), mask=None)
 
     # Save the image
     PainterUtils.write_flag_drawing(cross, 'bolnur_katskhuri_cross')
@@ -721,27 +742,24 @@ def paint_bolnur_katskhuri_cross():
 def paint_rounded_bar():
     """Return an image of a bar that is required for the construction of a Bolnur-Kathskuri cross"""
 
-    f = FlagPainter(3 / 6)
+    f = FlagPainter(1)
     transparent = (255, 255, 255, 0)
+    red = (223, 0, 39)
+    f.background(red)
 
-    draw_color = (224, 0, 54)
-    f.background(transparent)
-
-    f.draw_rectangle((1 / 6, 1 / 3, 5 / 6, 2 / 3), color=draw_color)
-
-    H = 10
-    R = 56
-    alpha = math.asin(H / (2 * R))
-    X = R * math.cos(alpha)
-    f.draw_circle(center=(1 / 6 - X / 60, 1 / 2), radius=R / 60, color=transparent)
-    f.draw_circle(center=(5 / 6 + X / 60, 1 / 2), radius=R / 60, color=transparent)
-
+    H = 35
+    I = 74
+    K = 56
+    L = 104
     W = 40
-    R = 104
-    alpha = math.asin(W / (2 * R))
-    Y = R * math.cos(alpha)
-    f.draw_circle(center=(1 / 2, 1 / 3 - Y / 30), radius=R / 60, color=transparent)
-    f.draw_circle(center=(1 / 2, 2 / 3 + Y / 30), radius=R / 60, color=transparent)
+
+    # Remove top and bottom part
+    f.draw_circle(center=(1 / 2, 1 / 2 - (I + H) / W), radius=L / W, color=transparent)
+    f.draw_circle(center=(1 / 2, 1 / 2 + (I + H) / W), radius=L / W, color=transparent)
+
+    # Remove left and right part
+    f.draw_circle(center=(1 / 2 - I / W, 1 / 2), radius=K / W, color=transparent)
+    f.draw_circle(center=(1 / 2 + I / W, 1 / 2), radius=K / W, color=transparent)
 
     img = PainterUtils.trim_img(f.img)
     filename_out = 'transparent_bar'
@@ -752,9 +770,7 @@ def paint_rounded_bar():
 
 if __name__ == '__main__':
 
-    paint_flag_kazakhstan()
-
-    paint_european_flags = False
+    paint_european_flags = True
     paint_toy_flags = False
 
     if paint_european_flags:

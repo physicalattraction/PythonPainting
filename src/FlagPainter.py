@@ -38,7 +38,7 @@ class FlagPainter(object):
         draw: ImageDraw object, operating self.img
         """
 
-        width = 4000  # pixels
+        width = 1000  # pixels
         height = (int)(width * height_width_ratio)
         self.img = Image.new("RGBA", (width, height), "white")
         self.draw = ImageDraw.Draw(self.img)
@@ -232,8 +232,6 @@ class FlagPainter(object):
         width, height = self.draw.textsize(text, my_font)
         x = center[0] * self.width - 1 / 2 * width
         y = center[1] * self.height - 1 / 2 * height
-
-        print(x, y)
 
         self.draw.text((x, y), text, fill=color, font=my_font)
 
