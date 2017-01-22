@@ -79,6 +79,7 @@ def paint_flag_belgium():
 
 
 def paint_flag_bosnia_herzegovina():
+    """http://www.vexilla-mundi.com/bosnia_and_herzegovina_flag.html"""
     f = FlagPainter(1 / 2)
     background_color = (14, 19, 150)
     triangle_color = (251, 207, 0)
@@ -95,7 +96,7 @@ def paint_flag_bosnia_herzegovina():
     for i in range(nr_stars):
         X = x_start + (i / (nr_stars - 1)) * (x_end - x_start)
         Y = y_start + (i / (nr_stars - 1)) * (y_end - y_start)
-        f.draw_star(center=(X, Y), radius_inner=9 / 400, radius_outer=19 / 400,
+        f.draw_star(center=(X, Y), radius_inner=7 / 400, radius_outer=19 / 400,
                     nr_points=5, starting_alpha=-math.pi / 2, color=star_color)
 
     f.save('bosnia_herzegovina')
@@ -770,7 +771,9 @@ def paint_rounded_bar():
 
 if __name__ == '__main__':
 
-    paint_european_flags = True
+    paint_flag_bosnia_herzegovina()
+
+    paint_european_flags = False
     paint_toy_flags = False
 
     if paint_european_flags:
