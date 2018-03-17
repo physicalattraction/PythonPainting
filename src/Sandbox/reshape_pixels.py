@@ -1,20 +1,16 @@
-import numpy as np
-import os.path
+"""
+Created on ???
 
+Used to answer this question:
+????
+
+@author: physicalattraction
+"""
+
+import numpy as np
 from PIL import Image
 
-
-def get_img_dir() -> str:
-    pkg_dir = os.path.dirname(__file__)
-    img_dir = os.path.join(pkg_dir, '..', '..', 'img')
-    return img_dir
-
-
-def open_img(img_name: str) -> Image:
-    img_dir = get_img_dir()
-    full_img_path = os.path.join(img_dir, img_name)
-    img = Image.open(full_img_path)
-    return img
+from utils import open_img
 
 
 def reshape_img(img: Image):
@@ -34,11 +30,13 @@ def reshape_img(img: Image):
         msg = 'The two images are identical'
         print(msg)
 
-def to_one_dimensional_array(img:Image):
+
+def to_one_dimensional_array(img: Image):
     img_data = np.array(img.getdata()).reshape(img.size[0], img.size[1], 3)
     print(img_data)
 
+
 if __name__ == '__main__':
-    ams = open_img(img_name='amsterdam_small.jpg')
+    ams = open_img(img_name='amsterdam_190x150.jpg')
     reshape_img(ams)
     to_one_dimensional_array(ams)
