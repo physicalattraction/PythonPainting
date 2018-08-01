@@ -770,10 +770,7 @@ def paint_rounded_bar():
 
 
 if __name__ == '__main__':
-
-    paint_flag_bosnia_herzegovina()
-
-    paint_european_flags = False
+    paint_european_flags = True
     paint_toy_flags = False
 
     if paint_european_flags:
