@@ -58,3 +58,6 @@ target/
 
 # Mac stuff
 .DS_Store
+
+# Secrets file
+secrets.json
