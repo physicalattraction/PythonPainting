@@ -5,3 +5,4 @@ Pillow==4.3.0
 pyPdf==1.13
 PyPDF2==1.26.0
 pyscreenshot==0.4.2
+requests==2.22.0
