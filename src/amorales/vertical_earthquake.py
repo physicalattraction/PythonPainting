@@ -2,6 +2,7 @@ import cmath
 import os.path
 import random
 from datetime import datetime
+from time import sleep
 from typing import List
 
 from PIL import Image, ImageDraw
@@ -20,6 +21,14 @@ FAT_WIDTH = 10
 THIN_WIDTH = 1
 
 
+def now() -> str:
+    """
+    Return the current date and timestamp in second precision
+    """
+
+    return datetime.now().strftime('%y%m%d%H%M%S')
+
+
 class VerticalEarthquake:
     file_dir = os.path.dirname(__file__)
     src_dir = os.path.dirname(file_dir)
@@ -31,6 +40,19 @@ class VerticalEarthquake:
         self.height = self.width
         self.img = Image.new('RGB', (self.width, self.height), 'white')
         self.draw = ImageDraw.Draw(self.img)
+
+    @staticmethod
+    def draw_multiple_quakes(nr_quakes: int):
+        for _ in range(nr_quakes):
+            start_time = now()
+            vertical_earthquake = VerticalEarthquake()
+            quake = vertical_earthquake.get_quake()
+            vertical_earthquake.draw_quake(quake)
+            vertical_earthquake.save_img()
+            while now() == start_time:
+                # Since we have seconds in the filename, we shouldn't continue
+                # drawing the next earthquake until the second is over
+                sleep(0.01)
 
     def get_quake(self) -> List[complex]:
         """
@@ -62,8 +84,7 @@ class VerticalEarthquake:
 
     def save_img(self):
         self.img = self.img.rotate(270)
-        now = datetime.now().strftime('%y%m%d%H%M%S')
-        filename = f'amorales_{now}.png'
+        filename = f'amorales_{now()}.png'
         full_path = os.path.join(self.img_dir, filename)
         self.img.save(full_path)
 
@@ -127,13 +148,9 @@ class VerticalEarthquake:
         Given a complex point, return the complex point shifted by the given angle (in radians)
         """
 
-        r = abs(point)
-        phi = cmath.phase(point) + phi_shift
-        return cmath.rect(r, phi)
+        r, phi = cmath.polar(point)
+        return cmath.rect(r, phi + phi_shift)
 
 
 if __name__ == '__main__':
-    ve = VerticalEarthquake()
-    pts = ve.get_quake()
-    ve.draw_quake(pts)
-    ve.save_img()
+   VerticalEarthquake.draw_multiple_quakes(10)
