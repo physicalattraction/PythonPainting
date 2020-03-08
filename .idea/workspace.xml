@@ -1,43 +1,223 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <option name="TRACKING_ENABLED" value="true" />
+    <list default="true" id="7cd8c26e-32f8-4ffb-810e-a7866994f0fc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/amorales/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/amorales/vertical_earthquake.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/local.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/local.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Python Unit Test" />
+      </list>
+    </option>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1YqIeGGrqQYj27CA325NcErYSPY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.vertical_earthquake (1)">
+    <configuration name="geometry" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PythonPainting" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/morales" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/morales/geometry.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="vertical_earthquake (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PythonPainting" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/amorales" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/amorales/vertical_earthquake.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="vertical_earthquake" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PythonPainting" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/morales" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/morales/vertical_earthquake.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for amorales.tests_geometry.GeometryTestCase.test_cart_addition" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="PythonPainting" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/amorales" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;amorales.tests_geometry.GeometryTestCase.test_cart_addition&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in /Users/erwin/git/PythonPainting/src/amorales/tests_geometry.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="PythonPainting" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/amorales" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/src/amorales/tests_geometry.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.vertical_earthquake (1)" />
+        <item itemvalue="Python.vertical_earthquake" />
+        <item itemvalue="Python tests.Unittests for amorales.tests_geometry.GeometryTestCase.test_cart_addition" />
+        <item itemvalue="Python tests.Unittests in /Users/erwin/git/PythonPainting/src/amorales/tests_geometry.py" />
+        <item itemvalue="Python.geometry" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="7cd8c26e-32f8-4ffb-810e-a7866994f0fc" name="Default Changelist" comment="" />
       <created>1468421531659</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1468421531659</updated>
+      <workItem from="1583663792395" duration="8506000" />
     </task>
     <servers />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
+  <component name="WindowStateProjectService">
+    <state width="1638" height="257" key="GridCell.Tab.0.bottom" timestamp="1583674600259">
+      <screen x="0" y="23" width="1680" height="957" />
+    </state>
+    <state width="1638" height="257" key="GridCell.Tab.0.bottom/0.23.1680.957@0.23.1680.957" timestamp="1583674600259" />
+    <state width="1638" height="257" key="GridCell.Tab.0.center" timestamp="1583674600258">
+      <screen x="0" y="23" width="1680" height="957" />
+    </state>
+    <state width="1638" height="257" key="GridCell.Tab.0.center/0.23.1680.957@0.23.1680.957" timestamp="1583674600258" />
+    <state width="1638" height="257" key="GridCell.Tab.0.left" timestamp="1583674600257">
+      <screen x="0" y="23" width="1680" height="957" />
+    </state>
+    <state width="1638" height="257" key="GridCell.Tab.0.left/0.23.1680.957@0.23.1680.957" timestamp="1583674600257" />
+    <state width="1638" height="257" key="GridCell.Tab.0.right" timestamp="1583674600258">
+      <screen x="0" y="23" width="1680" height="957" />
+    </state>
+    <state width="1638" height="257" key="GridCell.Tab.0.right/0.23.1680.957@0.23.1680.957" timestamp="1583674600258" />
+    <state x="349" y="140" key="SettingsEditor" timestamp="1583663849354">
+      <screen x="0" y="23" width="1680" height="957" />
+    </state>
+    <state x="349" y="140" key="SettingsEditor/0.23.1680.957@0.23.1680.957" timestamp="1583663849354" />
+    <state x="503" y="270" width="673" height="462" key="find.popup" timestamp="1583672899552">
+      <screen x="0" y="23" width="1680" height="957" />
+    </state>
+    <state x="503" y="270" width="673" height="462" key="find.popup/0.23.1680.957@0.23.1680.957" timestamp="1583672899552" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PythonPainting$Unittests_in_tests_geometry_py.coverage" NAME="Unittests in tests_geometry.py Coverage Results" MODIFIED="1583665427660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/morales" />
+    <SUITE FILE_PATH="coverage/PythonPainting$vertical_earthquake__1_.coverage" NAME="vertical_earthquake (1) Coverage Results" MODIFIED="1583674600249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/amorales" />
+    <SUITE FILE_PATH="coverage/PythonPainting$vertical_earthquake.coverage" NAME="vertical_earthquake Coverage Results" MODIFIED="1583673233503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/morales" />
+    <SUITE FILE_PATH="coverage/PythonPainting$Unittests_for_tests_geometry_GeometryTestCase_test_polar_to_cart.coverage" NAME="Unittests for tests_geometry.GeometryTestCase.test_polar_to_cart Coverage Results" MODIFIED="1583665274338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/morales" />
+    <SUITE FILE_PATH="coverage/PythonPainting$Unittests_for_tests_geometry_GeometryTestCase.coverage" NAME="Unittests for tests_geometry.GeometryTestCase Coverage Results" MODIFIED="1583665299230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/morales" />
+    <SUITE FILE_PATH="coverage/PythonPainting$geometry.coverage" NAME="geometry Coverage Results" MODIFIED="1583665370299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/morales" />
+    <SUITE FILE_PATH="coverage/PythonPainting$Unittests_for_tests_geometry_GeometryTestCase_test_cart_to_polar.coverage" NAME="Unittests for tests_geometry.GeometryTestCase.test_cart_to_polar Coverage Results" MODIFIED="1583665078750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/morales" />
+    <SUITE FILE_PATH="coverage/PythonPainting$Unittests_for_tests_geometry_GeometryTestCase_test_cart_addition.coverage" NAME="Unittests for tests_geometry.GeometryTestCase.test_cart_addition Coverage Results" MODIFIED="1583665614651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/morales" />
   </component>
 </project>
