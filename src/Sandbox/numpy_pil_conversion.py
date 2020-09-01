@@ -8,11 +8,27 @@ https://stackoverflow.com/a/49334548/1469465
 """
 
 import os.path
+from ctypes import sizeof
 
 import numpy as np
 from PIL import Image
 
 from utils import img_dir
+
+file = os.path.join('..', '..', 'img', 'amsterdam_190x150.jpg')
+im = Image.open(file)
+a = np.asarray(im)
+lst = a.tolist()
+b = np.asarray(lst)
+print(np.array_equal(a, b))
+for n in [a, b]:
+    print(n.__sizeof__())
+# im = Image.fromarray(b)
+# im.show()
+
+import sys
+
+sys.exit()
 
 
 def pil2numpy(img: Image = None) -> np.ndarray:
