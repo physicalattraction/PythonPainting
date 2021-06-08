@@ -3,7 +3,7 @@ chardet==3.0.4
 EasyProcess==0.2.10
 idna==2.9
 numpy==1.18.1
-Pillow==8.1.1
+Pillow==8.2.0
 PyPDF2==1.26.0
 requests==2.23.0
 urllib3==1.25.8
