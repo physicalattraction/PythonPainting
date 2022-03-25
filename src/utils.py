@@ -6,6 +6,7 @@ from PIL import Image
 def img_dir():
     return os.path.join(os.path.dirname(__file__), '..', 'img')
 
+
 def pdf_dir():
     return os.path.join(os.path.dirname(__file__), '..', 'pdf')
 
