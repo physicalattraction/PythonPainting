@@ -54,10 +54,10 @@ def save_as_file(url: str, output_file: str):
 def download_dice_bear_avatar(sprite: DiceBearSprite, seed: str = ''):
     if not seed:
         seed = random_string(10)
-    url = f'https://avatars.dicebear.com/api/{sprite.name}/{seed}.svg'
+    url = f'https://avatars.dicebear.com/api/{sprite.name}/{seed}.png'
     sprite_dir = os.path.join(AVATAR_ROOT_DIR, sprite.name)
     os.makedirs(sprite_dir, exist_ok=True)
-    output_file = os.path.join(sprite_dir, f'{seed}.svg')
+    output_file = os.path.join(sprite_dir, f'{seed}.png')
     save_as_file(url, output_file)
 
 
@@ -82,4 +82,5 @@ def download_avatars():
 
 
 if __name__ == '__main__':
-    download_avatars()
+    # download_avatars()
+    download_dice_bear_avatar(sprite=DiceBearSprite.gridy, seed='ams-ios')
