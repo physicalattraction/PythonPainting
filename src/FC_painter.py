@@ -22,16 +22,16 @@ def create_empty_splash_screens():
     for (W, H) in required_splash_screen_sizes:
         img = Image.new("RGBA", (W, H), "white")
         filename = 'FCSplash_W{}_H{}.png'.format(W, H)
-        full_img_path = os.path.join(PainterUtils.fashioncheque_dir(), filename)
+        full_img_path = os.path.join(PainterUtils.fashioncheque_dir, filename)
         img.save(full_img_path, quality=95, optimize=True)
         
         img = Image.new("RGBA", (H, W), "white")
         filename = 'FCSplash_W{}_H{}.png'.format(H, W)
-        full_img_path = os.path.join(PainterUtils.fashioncheque_dir(), filename)
+        full_img_path = os.path.join(PainterUtils.fashioncheque_dir, filename)
         img.save(full_img_path, quality=95, optimize=True)
         
 def resize_fc_logo():
-    full_filename_in = os.path.join(PainterUtils.fashioncheque_dir(), 'original', 'icon_fc_retail1024x-3.png')
+    full_filename_in = os.path.join(PainterUtils.fashioncheque_dir, 'original', 'icon_fc_retail1024x-3.png')
     img_orig = Image.open(full_filename_in)
     
     img_orig_white_bg = Image.new("RGB", img_orig.size, "white")
@@ -43,12 +43,12 @@ def resize_fc_logo():
     for (W, H) in required_icon_sizes:
         img = img_orig.resize((W, H), Image.ANTIALIAS)
         filename = 'FCIcon_W{}_H{}.png'.format(W, H)
-        full_img_path = os.path.join(PainterUtils.fashioncheque_dir(), filename)
+        full_img_path = os.path.join(PainterUtils.fashioncheque_dir, filename)
         img.save(full_img_path, quality=95, optimize=True)
         
         img = img_orig_white_bg.resize((W, H), Image.ANTIALIAS)
         filename = 'FCIcon_white_bg_W{}_H{}.png'.format(W, H)
-        full_img_path = os.path.join(PainterUtils.fashioncheque_dir(), filename)
+        full_img_path = os.path.join(PainterUtils.fashioncheque_dir, filename)
         img.save(full_img_path, quality=95, optimize=True)
 
 if __name__ == '__main__':

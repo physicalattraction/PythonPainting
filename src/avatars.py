@@ -29,7 +29,7 @@ class DiceBearSprite(Enum):
     micah = 10
 
 
-AVATAR_ROOT_DIR = os.path.join(img_dir(), 'avatar')
+AVATAR_ROOT_DIR = os.path.join(img_dir, 'avatar')
 os.makedirs(AVATAR_ROOT_DIR, exist_ok=True)
 
 

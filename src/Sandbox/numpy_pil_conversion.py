@@ -37,7 +37,7 @@ def pil2numpy(img: Image = None) -> np.ndarray:
     """
 
     if img is None:
-        img = Image.open(os.path.join(img_dir(), 'amsterdam_190x150.jpg'))
+        img = Image.open(os.path.join(img_dir, 'amsterdam_190x150.jpg'))
 
     np_array = np.asarray(img)
     return np_array

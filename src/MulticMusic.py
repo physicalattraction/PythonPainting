@@ -36,7 +36,7 @@ class MulticMusic(object):
         return img
     
     def drawing_color_circles(self, N_circles=80):
-        font_file = os.path.join(PainterUtils.font_dir(), "AlfaSlabOne-Regular.ttf")
+        font_file = os.path.join(PainterUtils.font_dir, "AlfaSlabOne-Regular.ttf")
         M_font = ImageFont.truetype(font_file, 128 * 5)
         img_M = self.drawing_text(text='M', font=M_font)
         W, H = img_M.size
@@ -64,7 +64,7 @@ class MulticMusic(object):
         return img
     
     def drawing_grey_circles(self, N_circles=20):
-        font_file = os.path.join(PainterUtils.font_dir(), "AlfaSlabOne-Regular.ttf")
+        font_file = os.path.join(PainterUtils.font_dir, "AlfaSlabOne-Regular.ttf")
         M_font = ImageFont.truetype(font_file, 100)
         img_M = self.drawing_text(text='Multic Music', font=M_font)
         W, H = img_M.size
@@ -91,7 +91,7 @@ class MulticMusic(object):
         return img
     
     def combine_M_and_colors(self, N_circles=80):
-        font_file = os.path.join(PainterUtils.font_dir(), "AlfaSlabOne-Regular.ttf")
+        font_file = os.path.join(PainterUtils.font_dir, "AlfaSlabOne-Regular.ttf")
         M_font = ImageFont.truetype(font_file, 128 * 5)
         img_M = self.drawing_text(text='M', font=M_font)
         img_colors = self.drawing_color_circles(N_circles)
@@ -101,7 +101,7 @@ class MulticMusic(object):
         return img
     
     def combine_text_and_colors(self, N_circles=20):
-        font_file = os.path.join(PainterUtils.font_dir(), "AlfaSlabOne-Regular.ttf")
+        font_file = os.path.join(PainterUtils.font_dir, "AlfaSlabOne-Regular.ttf")
         M_font = ImageFont.truetype(font_file, 100)
         img_text = self.drawing_text(text='Multic Music', font=M_font)
         img_circles = self.drawing_grey_circles(N_circles)

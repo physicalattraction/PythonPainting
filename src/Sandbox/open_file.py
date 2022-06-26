@@ -14,7 +14,7 @@ from PIL import Image
 
 from utils import img_dir
 
-path_to_file = os.path.join(img_dir(), '9BLW9.jpg')
+path_to_file = os.path.join(img_dir, '9BLW9.jpg')
 
 # Count the number of occurrences per pixel value for the entire image
 img = Image.open(path_to_file)
