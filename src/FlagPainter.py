@@ -108,7 +108,7 @@ class FlagPainter(object):
 
     def draw_horizontal_band(self, height, color):
         """
-        Draw a colored horizontal band on top of the curent flag
+        Draw a colored horizontal band on top of the current flag
         
         Inputs:
         -------

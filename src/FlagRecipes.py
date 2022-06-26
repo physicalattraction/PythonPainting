@@ -5,12 +5,11 @@ Created on Jun 20, 2015
 """
 
 import math
-
 from PIL import Image
 from PIL.PngImagePlugin import PngImageFile
 
-from FlagPainter import FlagPainter, StripeDirection
 import PainterUtils
+from FlagPainter import FlagPainter, StripeDirection
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -754,6 +753,198 @@ def paint_flag_vatican_city():
     f.save('vatican_city')
 
 
+# North America
+
+
+def paint_flag_antigua_and_barbuda():
+    """
+    http://vexilla-mundi.com/antigua_and_barbuda_flag.html
+    """
+
+    f = FlagPainter(2 / 3)
+    red = (204, 12, 47)
+    blue = (0, 100, 190)
+    yellow = (255, 203, 0)
+    f.background(BLACK)
+    f.draw_star(center=(1 / 2, 36 / 92), radius_inner=15 / 138, radius_outer=30 / 138,
+                nr_points=16, starting_alpha=0, color=yellow)
+    f.draw_horizontal_band((36 / 92, 56 / 92), blue)
+    f.draw_horizontal_band((56 / 92, 1), WHITE)
+    f.draw_polygon([(0, 0), (1 / 2, 1), (0, 1)], red)
+    f.draw_polygon([(1, 0), (1 / 2, 1), (1, 1)], red)
+    f.save('antigua_and_barbuda')
+
+
+def paint_flag_bahamas():
+    """
+    http://vexilla-mundi.com/bahamas_flag.html
+    """
+
+    f = FlagPainter(1 / 2)
+    blue = (0, 122, 148)
+    yellow = (255, 201, 47)
+    f.stripes(colors=[blue, yellow, blue], ratios=[1, 1, 1], stripe_direction=StripeDirection.horizontal)
+    f.draw_polygon([(0, 0), (3 / 12 * math.tan(math.pi / 3), 1 / 2), (0, 1)], BLACK)
+    f.save('bahamas')
+
+
+def paint_flag_barbados():
+    """
+    http://vexilla-mundi.com/barbados_flag.html
+    """
+
+    f = FlagPainter(2 / 3)
+    blue = (0, 37, 149)
+    yellow = (255, 201, 47)
+    f.stripes(colors=[blue, yellow, blue], ratios=[1, 1, 1], stripe_direction=StripeDirection.vertical)
+    f.place_drawing('barbados_detail', (1 / 2, 1 / 2), (None, 1 / 2))
+    f.save('barbados')
+
+
+def paint_flag_belize():
+    """
+    http://vexilla-mundi.com/belize_flag.html
+    """
+
+    f = FlagPainter(3 / 5)
+    red = (232, 0, 51)
+    blue = (0, 37, 149)
+    f.stripes(colors=[red, blue, red], ratios=[36, 288, 36], stripe_direction=StripeDirection.horizontal)
+    f.draw_circle((1 / 2, 1 / 2), 105 / 600, WHITE)
+    f.place_drawing('belize_detail', (1 / 2, 1 / 2), (200 / 600, None))
+    f.save('belize')
+
+
+def paint_flag_canada():
+    """
+    http://vexilla-mundi.com/canada_flag.html
+    https://commons.wikimedia.org/wiki/File:Flag_of_Canada_(construction_sheet_-_leaf_geometry).svg
+
+    Note: Although I took the exact measurements from the construction sheet,
+    the rounded corners still look slightly off
+    """
+
+    f = FlagPainter(1 / 2)
+    red = (215, 7, 58)
+    f.stripes(colors=[red, WHITE, red], ratios=[64, 128, 64], stripe_direction=StripeDirection.vertical)
+
+    # Definition of the nodes
+    polygon_points = [
+        (-18, -406),
+        (-8.955, -233.418), (-31.229, -213.712),  # Around arc A
+        (-203, -244),
+        (-179.705, -179.999), (-183.740, -165.450),  # Around arc B
+        (-372, -13),
+        (-329.678, 6.735), (-322.808, 22.534),  # Around arc C
+        (-360, 137),
+        (-251.637, 113.967), (-236.968, 121.603),  # Around arc D
+        (-216, 171),
+        (-131.369, 80.245), (-109.101, 91.591),  # Around arc E
+        (-150, 302),
+        (-84.543, 264.208), (-66.460, 269.565),  # Around arc F
+        (0, 400)
+    ]
+    # Mirror the left side to the right
+    polygon_points += [(-x, y) for (x, y) in reversed(polygon_points[:-1])]
+    # Calculate the relative positions
+    polygon_points = [(1 / 2 + x / 1920, 1 / 2 - y / 960) for x, y in polygon_points]
+    f.draw_polygon(polygon_points, red)
+
+    # Definition of the circle centers and radii
+    circle_points = [
+        (-27.929, -232.423, 19),  # Arc A
+        (-191.921, -175.553, 13),  # Arc B
+        (-335.172, 18.517, 13),  # Arc C
+        (-248.934, 126.683, 13),  # Arc D
+        (-121.862, 89.111, 13),  # Arc E
+        (-78.043, 275.467, 13),  # Arc F
+    ]
+    # Mirror the left side to the right
+    circle_points += [(-x, y, z) for (x, y, z) in reversed(circle_points)]
+    # Calculate the relative positions
+    circle_points = [(1 / 2 + x / 1920, 1 / 2 - y / 960, z) for x, y, z in circle_points]
+    for cp in circle_points:
+        f.draw_circle((cp[0], cp[1]), radius=cp[2] / 1920, color=WHITE)
+
+    f.save('canada')
+
+
+def paint_flag_costa_rica():
+    """
+    http://vexilla-mundi.com/costa_rica_flag.html
+    """
+
+    f = FlagPainter(3 / 5)
+    red = (204, 12, 47)
+    blue = (0, 39, 118)
+    f.stripes(colors=[blue, WHITE, red, WHITE, blue], ratios=[1,1,2,1,1], stripe_direction=StripeDirection.horizontal)
+    f.save('costa_rica')
+
+
+def paint_flag_cuba():
+    pass
+
+
+def paint_flag_dominica():
+    pass
+
+
+def paint_flag_dominican_republic():
+    pass
+
+
+def paint_flag_el_salvador():
+    pass
+
+
+def paint_flag_grenada():
+    pass
+
+
+def paint_flag_guatemala():
+    pass
+
+
+def paint_flag_haiti():
+    pass
+
+
+def paint_flag_honduras():
+    pass
+
+
+def paint_flag_jamaica():
+    pass
+
+
+def paint_flag_mexico():
+    pass
+
+
+def paint_flag_nicaragua():
+    pass
+
+
+def paint_flag_panama():
+    pass
+
+
+def paint_flag_saint_kitts_and_nevis():
+    pass
+
+
+def paint_flag_saint_lucia():
+    pass
+
+
+def paint_flag_trinidad_and_tobago():
+    pass
+
+
+def paint_flag_united_states():
+    pass
+
+
 # South America
 
 def paint_flag_argentina():
@@ -937,10 +1128,10 @@ def paint_flag_venezuela():
     f.stripes([yellow, blue, red], ratios, StripeDirection.horizontal)
     center_of_star_ring = (1 / 2, 84 / 120)
     for j in range(8):
-        angle = (j+1) * 20 * math.pi / 180
-        center_of_star = (center_of_star_ring[0] + math.cos(angle) * 36/180,
-                          center_of_star_ring[1] - math.sin(angle) * 36/120,)
-        f.draw_star(center=center_of_star, radius_inner=5/180*0.382, radius_outer=5/180,
+        angle = (j + 1) * 20 * math.pi / 180
+        center_of_star = (center_of_star_ring[0] + math.cos(angle) * 36 / 180,
+                          center_of_star_ring[1] - math.sin(angle) * 36 / 120,)
+        f.draw_star(center=center_of_star, radius_inner=5 / 180 * 0.382, radius_outer=5 / 180,
                     nr_points=5, starting_alpha=-angle, color=WHITE)
     f.save('venezuela')
 
@@ -1077,7 +1268,8 @@ def paint_rounded_bar():
 
 if __name__ == '__main__':
     paint_european_flags = False
-    paint_south_american_flags = True
+    paint_north_american_flags = True
+    paint_south_american_flags = False
     paint_toy_flags = False
 
     if paint_european_flags:
@@ -1133,6 +1325,30 @@ if __name__ == '__main__':
         paint_flag_ukraine()
         paint_flag_united_kingdom()
         paint_flag_vatican_city()
+
+    if paint_north_american_flags:
+        paint_flag_antigua_and_barbuda()
+        paint_flag_bahamas()
+        paint_flag_barbados()
+        paint_flag_belize()
+        paint_flag_canada()
+        paint_flag_costa_rica()
+        paint_flag_cuba()
+        paint_flag_dominica()
+        paint_flag_dominican_republic()
+        paint_flag_el_salvador()
+        paint_flag_grenada()
+        paint_flag_guatemala()
+        paint_flag_haiti()
+        paint_flag_honduras()
+        paint_flag_jamaica()
+        paint_flag_mexico()
+        paint_flag_nicaragua()
+        paint_flag_panama()
+        paint_flag_saint_kitts_and_nevis()
+        paint_flag_saint_lucia()
+        paint_flag_trinidad_and_tobago()
+        paint_flag_united_states()
 
     if paint_south_american_flags:
         paint_flag_argentina()
