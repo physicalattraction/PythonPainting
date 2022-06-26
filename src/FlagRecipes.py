@@ -1135,17 +1135,17 @@ if __name__ == '__main__':
         paint_flag_vatican_city()
 
     if paint_south_american_flags:
-        # paint_flag_argentina()
-        # paint_flag_bolivia()
-        # paint_flag_brazil()
-        # paint_flag_chile()
-        # paint_flag_colombia()
-        # paint_flag_ecuador()
-        # paint_flag_guyana()
-        # paint_flag_paraguay()
-        # paint_flag_peru()
-        # paint_flag_suriname()
-        # paint_flag_uruguay()
+        paint_flag_argentina()
+        paint_flag_bolivia()
+        paint_flag_brazil()
+        paint_flag_chile()
+        paint_flag_colombia()
+        paint_flag_ecuador()
+        paint_flag_guyana()
+        paint_flag_paraguay()
+        paint_flag_peru()
+        paint_flag_suriname()
+        paint_flag_uruguay()
         paint_flag_venezuela()
 
     if paint_toy_flags:

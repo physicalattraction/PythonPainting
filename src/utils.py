@@ -1,8 +1,8 @@
 import os.path
 
+import PIL
 import sys
-# noinspection PyUnresolvedReferences
-from PIL import Image, PILLOW_VERSION
+from PIL import Image
 
 src_dir = os.path.dirname(__file__)
 root_dir = os.path.dirname(src_dir)
@@ -40,4 +40,4 @@ def print_pil_version_info():
     """
 
     print(f'Using Python version {sys.version}')
-    print(f'Using Pillow version {PILLOW_VERSION}')
+    print(f'Using Pillow version {PIL.__version__}')
